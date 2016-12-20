@@ -9,7 +9,7 @@ def get_bet(bank_account):
             print("You only have $100 to bet, you can't bet anymore!")
         else:
             return bet
-    
+#User gets asked how much they want to bet and they cannot bet 0 and below or over 100 bucks   
 def roll2dice():
     dice1= random.randint(1 , 6)
     dice2= random.randint(1 , 6)
@@ -17,26 +17,28 @@ def roll2dice():
     print("Rolled 2 dice: {} + {}".format(dice1,dice2)) 
     print("Total dice roll: {}".format(dice1 + dice2))
     return dice_sum
-
+#Computer rolls the dice amd gives you the amount on both dice
 def first_roll_result(dice_sum):
     if dice_sum == 7 or dice_sum == 11:
             print("You win!")
+            return(craps())
     elif dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
             print("You lose")
+            return(craps())
     else:
         return dice_sum
-    
+#This is the result of when the first roll of the dice happens to either get your point number, a win, or a loss    
 def second_roll_result(dice_sum,point_roll):
     if dice_sum == point_roll:
         print("You won!")
     elif dice_sum == 7:
         print("You lose!")
     else:
-        print("TRY AGAIN")
-    while (roll2dice() != 7 and roll2dice() != point_roll):
-        print (roll2dice)
-        return(second_roll_result(dice_sum,point))
-        
+
+        while (dice_sum != 7 and dice_sum != point_roll):
+            dice_sum=roll2dice()
+        return(second_roll_result)
+#This is the result of the rest of your rolls, with either you winning off your point number, winning off seven, losing, or moving onto the next roll.
 
         
 def craps():
@@ -53,6 +55,6 @@ def craps():
         dice = roll2dice()
         point_roll_result = second_roll_result(dice,first_result)
         return(craps())
-        
+#        
     
 craps()

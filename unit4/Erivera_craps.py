@@ -37,7 +37,7 @@ def second_roll_result(dice_sum,point_roll):
         
     elif dice_sum == 7:
         print("You lose!")
-        
+
     else:
         while (dice_sum != 7 and dice_sum != point_roll):
             dice_sum=roll2dice()
@@ -47,6 +47,8 @@ def second_roll_result(dice_sum,point_roll):
 
 def craps():
     bank_account=100
+    while bank_account >0:
+        bet=get_bet(bank_account)
     get_bet(bank_account)
     dice = roll2dice()
     first_result = first_roll_result(dice)

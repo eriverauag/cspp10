@@ -5,8 +5,9 @@ import random
 #   purpose: present player with options, use input() to get player move
 #   returns: the player's move as either 'r', 'p', or 's'
 def get_p1_move():
-    move=input("rock,paper,scissors: ") 
+    move=input("rock, paper, scissors: ")
     return move
+    
 
 #function name: get_comp_move():
 #   arguments: none
@@ -16,13 +17,12 @@ def get_p1_move():
 def get_comp_move():
     randy=random.randint(1,3)
     if randy==1:
-      print("rock")
-    if randy==2:
-      print("paper")
+        return("rock")
+    elif randy==2:
+        return("paper")
     elif randy==3:
-      print("scissors")
+        return("scissors")
     return randy
-
 
 #function name: get_rounds
 #   arguments: none
@@ -41,34 +41,31 @@ def get_rounds():
 #               "comp" if computer won
 #               "tie" if it's a tie
 def get_round_winner(p1move, cmove):
-        if p1move == cmove:
-            return("Tie!")
-        if p1move == "rock" and cmove == "paper":
-            return("You lose!")
-        elif p1move =="paper" and cmove == "rock":
-            return("You win!")
-        elif p1move =="scissors" and cmove == "rock":
-            return("You lose!")
-        elif p1move =="rock" and cmove == "scissors":
-            return("You win!")
-        elif p1move =="scissors" and cmove == "paper":
-            return("You win!")
-        elif p1move =="paper" and cmove == "scissors":
-            return("You lose!")
+    if p1move == cmove:
+        return("Tie!")
+    if p1move == "rock" and cmove == "paper":
+        return("You lose!")
+    elif p1move == "paper" and cmove == "rock":
+        return("You win!")
+    elif p1move == "scissors" and cmove == "rock":
+        return("You lose!")
+    elif p1move == "rock" and cmove == "scissors":
+        return("You win!")
+    elif p1move == "paper" and cmove == "scissors":
+        return ("You lose!")
+    elif p1move == "scissors" and cmove == "paper":
+        return ("You win!")
 
-
-
-
+    
 
 #function name: print_score
 #   arguments: player score, computer score, number of ties
 #   purpose: prints the scoreboard
 #   returns: none
 def print_score(pscore, cscore, ties):
-    print("Player score:{}".format(pscore))
-    print("Computer score:{}".format(cscore))
-    print("Tie score:{}".format(ties))
-        
+    print("Player score: {}".format(pscore))
+    print("Computer score: {}".format(cscore))
+    print("Tie score: {}".format(ties))
 
 #function name: rps
 #   arguments: none
@@ -79,22 +76,23 @@ def rps():
     pscore=0
     cscore=0
     ties=0
-    rounds=get_rounds()
+    rounds = get_rounds()
     
     for rounds in range(1, rounds + 1):
-        p1move=get_p1_move()
+        p1move = get_p1_move()
         randy = get_comp_move()
-        winner = get_round_winner(p1move,randy)
-        print("Computer chose {}".format(randy))
-        if winner == "You Win!":
-            print("Player Won!")
-            pscore= pscore+1
-        elif winner == "You lose!":
-            print("Computer Won!")
-            cscore = cscore+1
+        winner = get_round_winner(p1move, randy)
+        print ("Computer chose {}".format(randy))
+        if winner == "You win!":
+            print("Player won!")
+            pscore=  pscore+1
+        elif winner =="You lose!":
+           print("Computer won!")
+           cscore = cscore +1
         else:
             print("It's a tie!")
-            ties= ties+1
+            ties = ties+1
         print_score(pscore,cscore,ties)
+        print("_________________________________")
+
 rps()
-    

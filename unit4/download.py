@@ -12,7 +12,7 @@ def get_bet(bank_account):
         if bet < 0:
             print("Your bet must be a positive integer higher than $0")
         elif bet> 100:
-            print("You only have $100 to bet, you can't bet anymore!")
+            print("You only have $100 to bet, you can't bet anymore!".format(bank_account))
         else:
             return bet
 #function name: roll2dice
@@ -29,10 +29,10 @@ def roll2dice():
     return dice_sum
     
     
-    
+#option 1    
 #function: first_roll_result
 #purpose: get the result of the first roll
-#arguments: dice_sum of the two dice rolled
+#arguments: roll - sum of the two dice rolled
 #returns: the result
 #if roll is 7,11: return "win"
 #if roll is 2,3,12: return "lose"
@@ -47,12 +47,7 @@ def first_roll_result(dice_sum):
         
     else:
         return dice_sum
-#function: second_roll_result
-#purpose: get the result of the second roll
-#arguments: dice_sum of the two dice rolled, point_roll neither a win or lose number rolled
-#returns: the result
-#if roll is point_roll: return "win"
-#if roll is 7: return "lose"
+
         
 def second_roll_result(dice_sum,point_roll):
     if dice_sum == 7:
@@ -89,7 +84,7 @@ def craps():
             print ("You have ${} in your bank account".format(bank_account))
             #what should happen to the bank account when they win?
             
-        if first_result == "You lose!":
+        elif first_result == "You lose!":
             print ("You lose!")
             bank_account= bank_account-bet
             print ("You have ${} in your bank account".format(bank_account))
@@ -101,12 +96,12 @@ def craps():
             point_roll_result = second_roll_result(dice,first_result)
             if point_roll_result == "You lose!":
                 print("You lose!")
-            bank_account= bank_account-bet
-            print ("You have ${} in your bank account".format(bank_account))
+                bank_account= bank_account-bet
+                print ("You have ${} in your bank account".format(bank_account))
             if point_roll_result == "You win!":
                 print("You won!")
-            bank_account= bank_account+bet
-            print("You have ${} in your bank account".format(bank_account))
+                bank_account= bank_account+bet
+                print("You have ${} in your bank account".format(bank_account))
             
             #how does the player know whether they won or lost?
             

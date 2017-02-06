@@ -1,18 +1,19 @@
+import random
 #state a word that I want to be scrambled
 
-#w = "feeling"
-#print (list(w))
+w = "word"
 
 #pick the word and write out a scramble function
-
+def scramble_word(w):
 #turn the letters into a list to be able to be scrambled
 
-#state a sentence that I want to be scrambled
-
-#come up with sentence scramble function
-
-w = "I,am,feeling,happy"
-print(w.split(","))
-
-#turn the sentence into a list to be scrambled
-
+    split = list(w)
+    first_l = split[0]
+    last_l = split[-1]
+    l_takeout = split[0:-1]
+    random.shuffle(l_takeout)
+    l_takeout.insert(first_l)
+    l_takeout.append(last_l)
+    scramble = ''.join(l_takeout)
+    print(scramble)
+scramble_word(w)

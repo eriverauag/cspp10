@@ -12,7 +12,7 @@ def scramble_word(w):
     last_l = split[-1]
     l_takeout = split[0:-1]
     random.shuffle(l_takeout)
-    l_takeout.insert(first_l)
+    l_takeout.insert(0,first_l)
     l_takeout.append(last_l)
     scramble = ''.join(l_takeout)
     print(scramble)
